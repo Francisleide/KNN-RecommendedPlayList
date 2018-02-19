@@ -3,6 +3,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Knn {
 	
@@ -79,8 +81,16 @@ public class Knn {
 	}
 	
 	public ArrayList<Musica> ordenaVetores(ArrayList<Musica> musicas){
-		
-		return null;
+		for(int i=0; i<musicas.size(); i++){
+			ArrayList<Distancias> distancias = new ArrayList<>();
+			distancias = musicas.get(i).getDistancias();
+			Collections.sort(distancias, new ComparadorDistancias());
+			for(int j=0; j<musicas.get(i).getDistancias().size(); j++){
+				//musicas.get(i).getDistancias().get(j).
+				
+			}
+		}
+		return musicas;
 	}
 	public ArrayList<Musica> knn(int k){
 		return null;

@@ -18,14 +18,22 @@ public class Principal {
 		//ArrayList<Distancias> distancias = new ArrayList<>();
 		playLists = knn.calcDistancias(playLists);
 		System.out.println("Olá mundo");
-		for(int i = 0; i<playLists.size(); i++){
-			System.out.println("Tamanho do elemento :  "+playLists.get(0).getDistancias().size());
+		//for(int i = 0; i<playLists.size(); i++){
+			//System.out.println("Tamanho do elemento :  "+playLists.get(0).getDistancias().size());
 			for(int j=0; j<playLists.get(0).getDistancias().size(); j++){
 				System.out.println("Titulo "+j+ ": "+playLists.get(0).getDistancias().get(j).getMusica().getTitulo());
 				System.out.println("Distância dele pra essa música: "+playLists.get(0).getDistancias().get(j).getDistancia());
 				
 			}
-		}
+		//}
+			System.out.println("Depois da ordenação!----------------------");
+			playLists = knn.ordenaVetores(playLists);
+			for(int j=0; j<playLists.get(0).getDistancias().size(); j++){
+				System.out.println("Titulo "+j+ ": "+playLists.get(0).getDistancias().get(j).getMusica().getTitulo());
+				System.out.println("Distância dele pra essa música: "+playLists.get(0).getDistancias().get(j).getDistancia());
+				
+			}
+		
 		
 
 	}
