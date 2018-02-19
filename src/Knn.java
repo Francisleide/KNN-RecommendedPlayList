@@ -67,7 +67,7 @@ public class Knn {
 							distancia = new Distancias();
 							distancia.setDistancia(dist);
 							distancia.setMusica(musicas.get(j));
-							System.out.println("Distancia: "+dist);
+							//System.out.println("Distancia: "+dist);
 							distancias.add(distancia);
 							//System.out.println("Dentro de distancia ta ino a musica: "+distancias.get(j).getMusica().getTitulo());
 							//System.out.println("Musica da posucação i: "+musicas.get(i).getTitulo());
@@ -92,7 +92,25 @@ public class Knn {
 		}
 		return musicas;
 	}
-	public ArrayList<Musica> knn(int k){
-		return null;
+	public ArrayList<PlayList> knn(int k, ArrayList<Musica> musicas ){
+		ArrayList<PlayList> playlists = new ArrayList<>();
+		PlayList play ;
+		ArrayList<Musica> musicasArray=null;
+		for(int i=0; i<musicas.size()-1; i++){
+			musicasArray = new ArrayList<>();
+			for(int j=0; j<k; j++){
+				musicasArray.add(musicas.get(i).getDistancias().get(j).getMusica());
+				//System.out.println(musicasArray.get(j).getTitulo());
+			//	
+				//playlists.set(i,musicasArray);
+			}
+			play = new PlayList();
+			play.setMusicas(musicasArray);
+			playlists.add(play);
+			
+		}
+		
+		//System.out.println(playlists.size());
+		return playlists;
 	}
 }
